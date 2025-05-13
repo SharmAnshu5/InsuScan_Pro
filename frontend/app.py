@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit_lottie import st_lottie
 import requests
 import altair as alt
 import json
@@ -11,9 +12,23 @@ import io
 st.set_page_config(page_title="Insu Scan Pro", page_icon="💉", layout="wide")
 
 # Constants
-EXTRACTION_URL = "http://localhost:8000/process_report/"
-PREDICTION_URL = "http://localhost:8000/predict/"
-HEALTH_CHECK_URL = "http://localhost:8000/health"
+EXTRACTION_URL = "http://127.0.0.1:8000/process_report/"
+PREDICTION_URL = "http://127.0.0.1:8000/predict/"
+HEALTH_CHECK_URL = "http://127.0.0.1:8000/health"
+
+#EXTRACTION_URL = "http://localhost:8000/process_report/"
+#PREDICTION_URL = "http://localhost:8000/predict/"
+#HEALTH_CHECK_URL = "http://localhost:8000/health"
+
+# Load Lottie animations
+def load_lottieurl(url: str):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
+
+extract_lottie = load_lottieurl("https://lottie.host/ad34d5d8-6290-4613-ab09-d5f6406c9856/ZmAwDuXqar.json")
+predict_lottie = load_lottieurl("https://lottie.host/4883059f-c6a6-4bd7-ad80-f717fd382f1e/vMr5OFltBV.json")
 
 # Initialize session state variables
 if "extracted_values" not in st.session_state:
@@ -115,7 +130,7 @@ with st.sidebar:
     
     col1, col2 = st.columns(2)
     with col1:
-        st.text_input("Patient Name", value=patient_info.get("PatientName", ""), key="patient_name", disabled=True)
+        st.text_input("👤Patient Name", value=patient_info.get("PatientName", ""), key="patient_name", disabled=True)
     with col2:
         st.text_input("Gender", value=patient_info.get("Gender", ""), key="gender", disabled=True)
     
@@ -124,7 +139,7 @@ with st.sidebar:
     except (ValueError, TypeError):
         age_val = 0
     
-    st.number_input("Age", value=age_val, key="age", disabled=True)
+    st.number_input("🎂Age", value=age_val, key="age", disabled=True)
 
     st.markdown("---")
     st.subheader("📊 Report Values")
@@ -133,20 +148,20 @@ with st.sidebar:
     col1, col2 = st.columns(2)
     
     with col1:
-        st.number_input("Pregnancies", value=float(patient_info.get("Pregnancies", 0)), key="preg", disabled=True)
-        st.number_input("Blood Pressure", value=float(patient_info.get("BloodPressure", 0)), key="bp", disabled=True)
-        st.number_input("Insulin", value=float(patient_info.get("Insulin", 0)), key="insulin", disabled=True)
+        st.number_input("🫃Pregnancies", value=float(patient_info.get("Pregnancies", 0)), key="preg", disabled=True)
+        st.number_input("🫀Blood Pressure", value=float(patient_info.get("BloodPressure", 0)), key="bp", disabled=True)
+        st.number_input("💉Insulin", value=float(patient_info.get("Insulin", 0)), key="insulin", disabled=True)
         st.number_input("Diabetes Pedigree", value=float(patient_info.get("DiabetesPedigreeFunction", 0.0)), key="dpf", disabled=True)
     
     with col2:
-        st.number_input("Glucose", value=float(patient_info.get("Glucose", 0)), key="glucose", disabled=True)
-        st.number_input("Skin Thickness", value=float(patient_info.get("SkinThickness", 0)), key="skin", disabled=True)
-        st.number_input("BMI", value=float(patient_info.get("BMI", 0.0)), key="bmi", disabled=True)
+        st.number_input("🩸Glucose", value=float(patient_info.get("Glucose", 0)), key="glucose", disabled=True)
+        st.number_input("🧈Skin Thickness", value=float(patient_info.get("SkinThickness", 0)), key="skin", disabled=True)
+        st.number_input("💪BMI", value=float(patient_info.get("BMI", 0.0)), key="bmi", disabled=True)
 
     st.markdown("---")
     st.subheader("📝 Notes")
-    st.text_area("Doctor's Notes", value=patient_info.get("DoctorNotes", ""), key="notes", disabled=True, height=100)
-    st.text_area("Diet Recommendation", value=patient_info.get("DietRecommendation", ""), key="diet", disabled=True, height=100)
+    st.text_area("📝Doctor's Notes", value=patient_info.get("DoctorNotes", ""), key="notes", disabled=True, height=100)
+    st.text_area("🥗Diet Recommendation", value=patient_info.get("DietRecommendation", ""), key="diet", disabled=True, height=100)
 
 # Main content area
 st.subheader("📤 Upload Medical Report")
@@ -164,6 +179,11 @@ if file:
     
     # Extract data button
     if st.button("🔍 Extract Data", key="extract_btn"):
+        with st.spinner("Extracting data..."):
+            animation_placeholder = st.empty()
+        with animation_placeholder:
+            st_lottie(extract_lottie, height=120, key="time_unique", loop=True)
+            
         if st.session_state.api_status != "Online":
             st.error("⚠️ Cannot extract data: Backend API is not reachable.")
         else:
@@ -188,6 +208,7 @@ if file:
                             st.success("Data extracted successfully!")
                             # Force a rerun to update the sidebar values
                             st.rerun()
+                            animation_placeholder.empty()
                     else:
                         st.error(f"Error: Extraction failed with status code {res.status_code}")
                         if res.text:
@@ -207,17 +228,24 @@ if st.session_state.extracted_values and st.button("🧠 Predict Diabetes", key=
         st.error("⚠️ Cannot make prediction: Backend API is not reachable.")
     else:
         with st.spinner("Predicting from extracted data..."):
+            with st.spinner("Making Prediction ..."):
+                animation_placeholder = st.empty()
+            with animation_placeholder:
+                st_lottie(extract_lottie, height=120, key="time_unique", loop=True)
+            with st.spinner("Waiting for prediction..."):
+                time.sleep(3)
+
             try:
                 data = st.session_state.extracted_values
                 response = requests.post(
                     PREDICTION_URL, 
                     json={"data": data},
                     timeout=10
-                )
-                
+                )                
                 if response.status_code == 200:
                     st.session_state.prediction_result = response.json()
                     st.success("Prediction completed!")
+                    animation_placeholder.empty()                    
                 else:
                     st.error(f"Prediction failed with status code {response.status_code}")
                     try:
@@ -353,6 +381,7 @@ if st.session_state.prediction_result and st.session_state.prediction_result.get
             dpf = st.session_state.extracted_values.get("DiabetesPedigreeFunction", 0)
             if dpf > 0.8:
                 st.warning(f"⚠️ Strong family history factor ({dpf:.2f})")
+        st_lottie(predict_lottie, height=200, key="result")
 
     # Summary section
     st.markdown("---")
@@ -419,5 +448,7 @@ else:
         - Family history (Diabetes Pedigree Function)
         - Doctor's notes and recommendations
         """)
+
+
 
 
