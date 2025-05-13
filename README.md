@@ -85,7 +85,7 @@ This helps patients **understand their health condition** and supports medical s
 ## 📂 Folder Structure
 
 ```
-D:.
+InsuScan_Pro
 │   LICENSE
 │   README.md
 │   requirements.txt
