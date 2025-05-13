@@ -7,6 +7,10 @@ A Machine Learning Solution for Automating the Analysis of Medical Reports for D
 
 ---
 
+![App Screenshot](Screenshot 2025-05-13 200619)
+
+---
+
 ## 🚀 Live Demo & Resources
 
 * 🌐 **Live App**: [https://your-deployment-link.com](https://your-deployment-link.com)
