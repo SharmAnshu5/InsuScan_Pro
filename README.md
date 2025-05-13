@@ -5,16 +5,18 @@ A Machine Learning Solution for Automating the Analysis of Medical Reports for D
 
 > It transforms traditional PDF/DOCX lab reports into interactive, AI-driven insights — all in one click.
 
+
 ---
 
 ![App Screenshot](https://github.com/SharmAnshu5/InsuScan_Pro/blob/main/Screenshot%202025-05-13%20200619.png)
 
 ---
 
+
 ## 🚀 Live Demo & Resources
 
 * 🌐 **Live App**: [https://your-deployment-link.com](https://your-deployment-link.com)
-* 🎥 **Demo Video (MP4)**: [Watch Demo](https://your-demo-video-link.com)
+* 🎥 **Demo Video (MP4)**: [Watch Demo](https://youtu.be/D9VmF_uKr5k)
 * 📊 **Dataset**: [PIMA Indians Diabetes Dataset](https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database)
 
 ---
@@ -79,10 +81,11 @@ This helps patients **understand their health condition** and supports medical s
 | **ML & Data Science**   | XGBoost, Scikit-learn, Pandas, SHAP                                        |
 | **Document Processing** | PyMuPDF (fitz), python-docx, IPython                                       |
 | **File Handling**       | `multipart/form-data`, base64 encoding                                     |
-| **Visualization**       | Donut Charts                                                               |
+| **Visualization**       | Donut Charts, Streamlit animation                                          |
 | **Deployment**          | Streamlit Sharing / HuggingFace / Render (Choose based on your deployment) |
 
 > We use **PyMuPDF** for accurate PDF text extraction, even for reports with varying layouts, and `python-docx` for parsing DOCX files.
+> Also use "Popular " for the preview of medical report
 
 ---
 
@@ -141,6 +144,13 @@ InsuScan_Pro
 git clone https://github.com/your-username/insu-scan-pro.git
 cd insu-scan-pro
 ```
+### 2. Setup project (Popular_path)
+*Install all dependancies from requirements.txt
+*For pdf2image you need to download poppler
+*Install Tesseract OCR Engine in your PC
+*Tesseract installation instrution : Github
+*Tesseract windows specific instructions: Github
+*Set required PATHs as per your environment
 
 ### 2. Setup project (Virtual Enviorment)
 
@@ -187,7 +197,7 @@ Feel free to use, modify, and distribute. See [`LICENSE`](LICENSE) file for more
 
 **Anshu Sharma**
 🎓 Final-year Computer Science & AI Student
-🔗 [GitHub](https://github.com/SharmAnshu5) | [LinkedIn](https://linkedin.com/in/your-profile)
+🔗 [GitHub](https://github.com/SharmAnshu5) | [LinkedIn](https://www.linkedin.com/in/anshu-sharma-b74a07221/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
 
 ---
 
@@ -195,12 +205,3 @@ Feel free to use, modify, and distribute. See [`LICENSE`](LICENSE) file for more
 
 Want to improve this app? Found a bug?
 Pull requests and issues are welcome. Let's build something impactful together!
-
----
-
-Once you upload:
-
-* ✅ The MP4 demo file
-* ✅ Deployment link
-* ✅ Screenshot for UI preview
-
