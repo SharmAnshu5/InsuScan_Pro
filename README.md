@@ -85,22 +85,46 @@ This helps patients **understand their health condition** and supports medical s
 ## 📂 Folder Structure
 
 ```
-insu-scan-pro/
+D:.
+│   LICENSE
+│   README.md
+│   requirements.txt
 │
-├── backend/
-│   ├── main.py               # FastAPI server
-│   ├── model/
-│   │   ├── model.pkl         # Trained XGBoost model
-│   │   │   └── summary_generator.py
-│   ├── utils/
-|   |   └──model_loader.py
-|   |   └──summary_generator.py
-│   │   └── extract.py        # Extraction logic
-│   └── requirements.txt
+├───backend
+│   │   main.py
+│   │
+│   ├───data
+│   │       diabetes_dataset.csv
+│   │
+│   ├───models
+│   │       diabetes_model.pkl
+│   │
+│   ├───services
+│   │   ├───models
+│   │   │       diabetes_xgb_model.pkl
+│   │   │       scaler.pkl
+│   │   │       scheams.py
+│   │   │
+│   │   └───__pycache__
+│   │           diabetes_classifier.cpython-312.pyc
+│   │
+│   ├───utils
+│   │   │   extract_diabetes_data.py
+│   │   │   model_loader.py
+│   │   │   summary_generator.py
+│   │   │
+│   │   └───__pycache__
+│   │           extract_diabetes_data.cpython-312.pyc
+│   │           extract_diabetes_data.cpython-313.pyc
+│   │           summary_generator.cpython-312.pyc
+│   │           summary_generator.cpython-313.pyc
+│   │
+│   └───__pycache__
+│           main.cpython-312.pyc
+│           main.cpython-313.pyc
 │
-├── frontend/
-│   ├── app.py                # Streamlit interface
- requirements.txt
+└───frontend
+        app.py
 ```
 
 ---
