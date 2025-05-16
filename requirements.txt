@@ -2,6 +2,7 @@ pandas
 fastapi
 uvicorn
 streamlit
+streamlit_lottie
 joblib
 numpy
 xgboost
@@ -12,6 +13,8 @@ plotly
 pdf2image
 python-docx
 ipython
+mysql-connector-python
+
 
 altair
 requests
