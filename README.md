@@ -8,7 +8,7 @@ A Machine Learning Solution for Automating the Analysis of Medical Reports for D
 
 ---
 
-![App Screenshot](https://github.com/SharmAnshu5/InsuScan_Pro/blob/main/Screenshot%202025-05-13%20200619.png)
+![App Screenshot](https://github.com/SharmAnshu5/InsuScan_Pro/blob/main/New%20folder/Screenshot%202025-05-13%20200619.png)
 
 ---
 
