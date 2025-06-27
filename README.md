@@ -1,4 +1,6 @@
-
+<p align="center">
+  <img src="https://github.com/SharmAnshu5/InsuScan_Pro/blob/main/Portfolio%20(1).png" alt="InsuScan Pro Banner" width="100%">
+</p>
 
 <h1 align="center">💉 InsuScan Pro 🩺</h1>
 <p align="center"><strong>A Machine Learning Solution for Automating the Analysis of Medical Reports for Diabetes</strong></p>
@@ -10,7 +12,7 @@
 ---
 
 <p align="center">
-  <img src="https://github.com/SharmAnshu5/InsuScan_Pro/blob/main/New%20folder/Screenshot%202025-05-13%20200619.png" alt="InsuScan Pro Banner" width="100%">
+  <img src="https://github.com/SharmAnshu5/InsuScan_Pro/blob/main/New%20folder/Screenshot%202025-05-13%20200619.png" alt="InsuScan Pro preview" width="100%">
 </p>
 
 
