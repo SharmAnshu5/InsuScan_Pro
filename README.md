@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="https://github.com/SharmAnshu5/InsuScan_Pro/blob/main/New%20folder/Screenshot%202025-05-13%20200619.png" alt="InsuScan Pro Banner" width="100%">
-</p>
+
 
 <h1 align="center">💉 InsuScan Pro 🩺</h1>
 <p align="center"><strong>A Machine Learning Solution for Automating the Analysis of Medical Reports for Diabetes</strong></p>
@@ -8,6 +6,13 @@
 <p align="center">
   <i>Transforming traditional reports into smart insights in just one click.</i>
 </p>
+
+---
+
+<p align="center">
+  <img src="https://github.com/SharmAnshu5/InsuScan_Pro/blob/main/New%20folder/Screenshot%202025-05-13%20200619.png" alt="InsuScan Pro Banner" width="100%">
+</p>
+
 
 ---
 
@@ -25,9 +30,9 @@
 ## 🚀 Live Demo & Resources
 
 <p align="center">
-  🔗 <strong>Live App</strong>: [https://your-deployment-link.com](https://your-deployment-link.com)  
+  🔗 <strong>Live App</strong>: comming soon
   <br>
-  📽️ <strong>Demo Video</strong>: [Watch Demo](https://youtu.be/D9VmF_uKr5k)  
+  📽️ <strong>Demo Video</strong>: [Watch Demo](https://youtu.be/Zql4xyS1fs4)  
   <br>
   📊 <strong>Dataset</strong>: [PIMA Indians Diabetes Dataset](https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database)
 </p>
@@ -101,9 +106,7 @@ InsuScan_Pro
 └───frontend
 └── app.py
 
-yaml
-Copy
-Edit
+
 ```
 
 ---
